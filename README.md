@@ -1,6 +1,6 @@
 # Power BI JIRA Analysis
 
-![image](https://github.com/Utkarsh11-git/PowerBI_JIRA/assets/92782014/b6067d35-397f-49ee-afb0-3c4831fcbf14)
+![image](https://github.com/Utkarsh11-git/PowerBI_JIRA/assets/92782014/bb0cbd84-8e2b-48b1-90fa-2d482fc398aa)
 
 ### Introduction:
 This dashboard analyzes details of JIRA tickets using various variables such as Issues Assigned, Issues Resolved, Type of Issue, Time taken to resolve, Tickets reported by, etc. The findings from this will help plan and resolve the issues and improve the overall response and performance.
