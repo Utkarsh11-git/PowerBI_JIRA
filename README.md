@@ -2,7 +2,7 @@
 
 ![image](https://github.com/Utkarsh11-git/PowerBI_JIRA/assets/92782014/3bc3fd93-5646-417f-a252-967ec4e962ae)
 
-### Introduction:
+### ❓ Introduction:
 This dashboard analyzes details of JIRA tickets using various variables such as Issues Assigned, Issues Resolved, Type of Issue, Time taken to resolve, Tickets reported by, etc. The findings from this will help plan and resolve the issues and improve the overall response and performance.
 
 ### Objective:
@@ -19,7 +19,7 @@ The primary objective of creating a dashboard to track Jira Software tickets is 
 * **Month Resoltion**: The month in which the ticket was resolved.
 * **Month Assigned**: The month in which the ticket was assigned.
 
-### DAX Formulas Used in Measures
+### 💡 DAX Formulas Used in Measures
 **1. Total number of tickets resolved within 10 days**
 * `CALCULATE(COUNT('PowerBI-JIRA'[Time-Taken]),'PowerBI-JIRA'[Time-Taken]<10)`
 
