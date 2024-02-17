@@ -1,6 +1,9 @@
 # Power BI JIRA Analysis
 
-![image](https://github.com/Utkarsh11-git/PowerBI_JIRA/assets/92782014/3bc3fd93-5646-417f-a252-967ec4e962ae)
+
+![image](https://github.com/Utkarsh11-git/PowerBI_JIRA/assets/92782014/7dacb0a2-5bf0-45dc-90e8-cd6662859bce)
+
+
 
 ### ❓ Introduction:
 This dashboard analyzes details of JIRA tickets using various variables such as Issues Assigned, Issues Resolved, Type of Issue, Time taken to resolve, Tickets reported by, etc. The findings from this will help plan and resolve the issues and improve the overall response and performance.
@@ -20,11 +23,29 @@ The primary objective of creating a dashboard to track Jira Software tickets is 
 * **Month Assigned**: The month in which the ticket was assigned.
 
 ### 💡 DAX Formulas Used in Measures
-**1. Total number of tickets resolved within 10 days**
-* `CALCULATE(COUNT('PowerBI-JIRA'[Time-Taken]),'PowerBI-JIRA'[Time-Taken]<10)`
+**1. Total number of days taken to resolve a ticket excluding weekends**
+* ``
+Time-Taken = 
+VAR StartDate = 'PowerBI-JIRA'[Assigned On]
+VAR EndDate = 'PowerBI-JIRA'[Resolved On]
+VAR NumWeekdays = 
+    IF(
+        StartDate = EndDate,  -- Check if the dates are the same
+        0,  -- Return 0 if the dates are the same
+        COUNTROWS(
+            FILTER(
+                CALENDAR(StartDate, EndDate),
+                WEEKDAY([Date], 1) < 6
+            )
+        )
+    )
+RETURN
+    NumWeekdays
+``
 
-**2. Number of days taken to resolve a ticket**
-* `ABS(DATEDIFF('PowerBI-JIRA'[Resolved On].[Date],'PowerBI-JIRA'[Assigned On].[Date],DAY))`
+
+**2. Issue Type of Ticket**
+* `SWITCH('PowerBI-JIRA'[Short-Name],"ACM","Story","NGX","Defect","AAWIN","Sub-Task","RSAR","Defect","AAFWEH","Story","AM","Defect","AAADFS","Task","AAIIS","Task","MA","Sub-Task","AAFM","Epic","AMBA","Defect")`
 
 ### Insights:
 * The majority of the issues were resolved within 10 days.
